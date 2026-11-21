@@ -1,0 +1,844 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>棋樂無窮・智慧人生｜彰化社區大學</title>
+
+<style>
+:root {
+  --navy: #183b45;
+  --green: #477b65;
+  --gold: #d5a64a;
+  --cream: #faf7ef;
+  --text: #34434a;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  line-height: 1.8;
+}
+
+nav {
+  background: var(--navy);
+  color: white;
+  padding: 15px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav .logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #f4d48d;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: var(--gold);
+}
+
+.hero {
+  min-height: 570px;
+  background:
+    linear-gradient(90deg,
+    rgba(16,43,47,.94),
+    rgba(16,43,47,.68)),
+    url("https://images.unsplash.com/photo-1586165368502-1bad197a6461?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+  display: flex;
+  align-items: center;
+  padding: 70px 10%;
+  color: white;
+}
+
+.hero-content {
+  max-width: 760px;
+}
+
+.hero .tag {
+  color: #f5d58d;
+  letter-spacing: 4px;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: clamp(38px, 6vw, 68px);
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+
+.hero h2 {
+  color: #f2d18a;
+  font-size: 23px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--gold);
+  color: #263b37;
+  padding: 13px 32px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: .3s;
+}
+
+.btn:hover {
+  background: white;
+  transform: translateY(-3px);
+}
+
+section {
+  padding: 75px 8%;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.section-title small {
+  color: var(--green);
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+.section-title h2 {
+  color: var(--navy);
+  font-size: 34px;
+  margin: 10px 0;
+}
+
+.section-title p {
+  color: #77817e;
+}
+
+.intro {
+  text-align: center;
+  max-width: 900px;
+  margin: auto;
+  font-size: 18px;
+}
+
+.intro strong {
+  color: var(--green);
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 40px;
+}
+
+.info-card {
+  background: white;
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0,0,0,.05);
+}
+
+.info-card h3 {
+  color: var(--green);
+  margin-bottom: 12px;
+}
+
+.info-card p {
+  font-size: 15px;
+}
+
+.highlight {
+  background: #e9efe9;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+}
+
+.feature {
+  background: white;
+  border-radius: 15px;
+  padding: 25px 18px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,.05);
+  transition: .3s;
+}
+
+.feature:hover {
+  transform: translateY(-7px);
+}
+
+.feature .icon {
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+.feature h3 {
+  color: var(--navy);
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.feature p {
+  font-size: 14px;
+}
+
+.learning {
+  background: var(--navy);
+  color: white;
+}
+
+.learning .section-title h2 {
+  color: white;
+}
+
+.learning .section-title small {
+  color: #f1cd80;
+}
+
+.learning-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.learning-card {
+  padding: 30px;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 16px;
+  background: rgba(255,255,255,.07);
+}
+
+.learning-card h3 {
+  color: #f1cd80;
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.learning-card li {
+  margin-left: 22px;
+  padding: 5px 0;
+}
+
+.timeline {
+  max-width: 850px;
+  margin: auto;
+}
+
+.stage {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  border-left: 3px solid var(--gold);
+  margin-bottom: 15px;
+  background: white;
+  border-radius: 0 12px 12px 0;
+}
+
+.stage-number {
+  background: var(--green);
+  color: white;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+.stage h3 {
+  color: var(--navy);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  font-size: 15px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+th {
+  background: var(--navy);
+  color: white;
+  padding: 15px 12px;
+}
+
+td {
+  padding: 14px 12px;
+  border-bottom: 1px solid #e9e9e9;
+}
+
+tr:hover td {
+  background: #f3f7f1;
+}
+
+td:first-child {
+  text-align: center;
+  white-space: nowrap;
+  font-weight: bold;
+  color: var(--green);
+}
+
+td:nth-child(2) {
+  font-weight: bold;
+  color: var(--navy);
+  min-width: 150px;
+}
+
+.citizen td {
+  background: #fff5df;
+}
+
+.design {
+  background: #e9efe9;
+}
+
+.design-box {
+  max-width: 850px;
+  margin: auto;
+  padding: 35px;
+  background: white;
+  border-radius: 18px;
+  border-left: 6px solid var(--gold);
+}
+
+.design-box h3 {
+  color: var(--green);
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.promo {
+  background: linear-gradient(135deg, #183b45, #477b65);
+  color: white;
+  text-align: center;
+}
+
+.promo h2 {
+  color: #f3d18a;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.promo p {
+  max-width: 780px;
+  margin: 12px auto;
+}
+
+.promo .btn {
+  margin-top: 25px;
+}
+
+footer {
+  background: #102b30;
+  color: #ddd;
+  padding: 30px 8%;
+  text-align: center;
+  font-size: 14px;
+}
+
+footer strong {
+  color: #f2d18a;
+}
+
+@media(max-width:900px) {
+  .feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width:600px) {
+  nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  nav a {
+    margin: 0 6px;
+    font-size: 12px;
+  }
+
+  .hero {
+    min-height: 500px;
+    padding: 50px 7%;
+  }
+
+  .info-grid,
+  .feature-grid,
+  .learning-grid {
+    grid-template-columns: 1fr;
+  }
+
+  section {
+    padding: 55px 5%;
+  }
+
+  .section-title h2 {
+    font-size: 27px;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 680px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- 導覽列 -->
+<nav>
+  <div class="logo">♟ 棋樂無窮・智慧人生</div>
+  <div>
+    <a href="#about">課程介紹</a>
+    <a href="#feature">課程特色</a>
+    <a href="#curriculum">18週課綱</a>
+    <a href="#contact">招生資訊</a>
+  </div>
+</nav>
+
+<!-- 主視覺 -->
+<header class="hero">
+  <div class="hero-content">
+    <div class="tag">CHANGHUA COMMUNITY UNIVERSITY</div>
+    <h1>棋樂無窮<br>智慧人生</h1>
+    <h2>一盤棋，開啟智慧；一群人，創造美好人生！</h2>
+    <p>
+      從圍棋出發，學習思考、管理情緒、善用AI，
+      讓20歲到80歲的你，都能在棋盤上找到人生智慧。
+    </p>
+    <a href="#curriculum" class="btn">探索18週精彩課程 ↓</a>
+  </div>
+</header>
+
+<!-- 課程介紹 -->
+<section id="about">
+  <div class="section-title">
+    <small>ABOUT THE COURSE</small>
+    <h2>不只是下棋，更是智慧人生的學習</h2>
+    <p>讓圍棋成為跨世代交流與終身學習的橋梁</p>
+  </div>
+
+  <div class="intro">
+    <p>
+      以<strong>圍棋</strong>為媒介，結合
+      <strong>邏輯思考、社會情緒學習（SEL）
+      與資訊素養</strong>，
+      讓不同世代在對弈中培養專注、溝通、
+      情緒管理及獨立判斷能力，
+      實踐智慧共學的生活。
+    </p>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <h3>🎯 課程目標</h3>
+      <p>
+        培養棋藝知識、策略思考與問題解決能力，
+        提升自我覺察、情緒管理、同理心及合作力，
+        並學習善用AI及數位工具。
+      </p>
+    </div>
+
+    <div class="info-card">
+      <h3>👥 招生對象</h3>
+      <p>
+        年齡20至80歲，對圍棋、益智遊戲及終身學習
+        有興趣者皆可參加，零基礎也能輕鬆入門。
+      </p>
+    </div>
+
+    <div class="info-card">
+      <h3>📅 課程規劃</h3>
+      <p>
+        18週循序漸進教學，從棋藝入門、
+        策略思考到AI應用與成果展，
+        建立完整學習歷程。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 五大特色 -->
+<section id="feature" class="highlight">
+  <div class="section-title">
+    <small>COURSE HIGHLIGHTS</small>
+    <h2>五大特色・讓學習更有趣</h2>
+    <p>不只是學圍棋，更讓自己全面升級</p>
+  </div>
+
+  <div class="feature-grid">
+    <div class="feature">
+      <div class="icon">🤝</div>
+      <h3>跨世代共學</h3>
+      <p>20至80歲一起學習，以棋會友，創造不同世代的交流機會。</p>
+    </div>
+
+    <div class="feature">
+      <div class="icon">🧠</div>
+      <h3>腦力大升級</h3>
+      <p>訓練專注、記憶、觀察、邏輯與策略思考能力。</p>
+    </div>
+
+    <div class="feature">
+      <div class="icon">❤️</div>
+      <h3>情緒管理力</h3>
+      <p>從勝負中學習情緒調節、同理心與尊重他人。</p>
+    </div>
+
+    <div class="feature">
+      <div class="icon">💻</div>
+      <h3>AI數位學習</h3>
+      <p>結合AI圍棋、數位工具及資訊判讀能力。</p>
+    </div>
+
+    <div class="feature">
+      <div class="icon">🏆</div>
+      <h3>成果與成就</h3>
+      <p>參與棋藝挑戰、友誼交流及學習成果展。</p>
+    </div>
+  </div>
+</section>
+
+<!-- SEL及資訊素養 -->
+<section class="learning">
+  <div class="section-title">
+    <small>SMART LEARNING</small>
+    <h2>圍棋 × 社會情緒學習 × 資訊素養</h2>
+    <p style="color:#ddd">讓傳統棋藝與現代教育接軌</p>
+  </div>
+
+  <div class="learning-grid">
+    <div class="learning-card">
+      <h3>❤️ 社會情緒學習 SEL</h3>
+      <ul>
+        <li>自我覺察：認識自己的情緒與想法。</li>
+        <li>自我管理：學習面對輸贏與挫折。</li>
+        <li>社會覺察：理解對手的想法與感受。</li>
+        <li>人際技巧：培養溝通、合作與尊重。</li>
+        <li>負責任的決策：思考每一步棋的影響。</li>
+      </ul>
+    </div>
+
+    <div class="learning-card">
+      <h3>💻 資訊素養 Information Literacy</h3>
+      <ul>
+        <li>認識數位圍棋與線上學習平台。</li>
+        <li>運用AI工具分析棋局與策略。</li>
+        <li>辨識網路資訊真偽及資訊來源。</li>
+        <li>認識AI生成內容與科技倫理。</li>
+        <li>培養安全、理性及負責任的數位使用習慣。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 五大階段 -->
+<section>
+  <div class="section-title">
+    <small>LEARNING JOURNEY</small>
+    <h2>18週學習旅程</h2>
+    <p>從零基礎到成果展，循序漸進成為智慧棋手</p>
+  </div>
+
+  <div class="timeline">
+    <div class="stage">
+      <div class="stage-number">01</div>
+      <div>
+        <h3>第一階段｜認識圍棋（第1～4週）</h3>
+        <p>認識棋具、規則、基本觀念及圍棋禮儀。</p>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="stage-number">02</div>
+      <div>
+        <h3>第二階段｜策略思考（第5～8週）</h3>
+        <p>學習棋形、攻防、布局及全局思考。</p>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="stage-number">03</div>
+      <div>
+        <h3>第三階段｜公民與數位素養（第9～12週）</h3>
+        <p>認識資訊判讀、AI應用及情緒管理。</p>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="stage-number">04</div>
+      <div>
+        <h3>第四階段｜實戰與跨世代交流（第13～17週）</h3>
+        <p>透過棋局實戰、AI分析與跨世代交流深化學習。</p>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="stage-number">05</div>
+      <div>
+        <h3>第五階段｜成果展（第18週）</h3>
+        <p>展現棋藝、分享心得、交流學習成果。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 18週課程大綱 -->
+<section id="curriculum" class="highlight">
+  <div class="section-title">
+    <small>18 WEEKS CURRICULUM</small>
+    <h2>18週完整課程大綱</h2>
+    <p>每一週都有新發現，每一盤棋都是新學習</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>週次</th>
+          <th>課程主題</th>
+          <th>教學內容</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>第1週</td>
+          <td>棋逢知己・圍棋初體驗</td>
+          <td>認識圍棋歷史、棋具與棋盤，透過趣味體驗認識圍棋魅力，建立跨世代學習夥伴關係。</td>
+        </tr>
+        <tr>
+          <td>第2週</td>
+          <td>圍棋入門・棋盤的秘密</td>
+          <td>認識棋盤線條、星位、棋子擺放及基本規則，透過實際操作熟悉棋盤與落子方式。</td>
+        </tr>
+        <tr>
+          <td>第3週</td>
+          <td>氣與吃子・棋子的生存戰</td>
+          <td>學習氣、緊氣、提子及禁入點，透過遊戲挑戰理解圍棋基本生存法則。</td>
+        </tr>
+        <tr>
+          <td>第4週</td>
+          <td>圍棋禮儀・做個有品棋手</td>
+          <td>學習猜先、行棋禮儀、尊重對手與勝負態度，培養同理心及良好互動習慣。</td>
+        </tr>
+        <tr>
+          <td>第5週</td>
+          <td>棋形觀察・培養專注力</td>
+          <td>認識連接、分斷、逃子及包圍，透過棋形觀察訓練專注力與視覺判斷能力。</td>
+        </tr>
+        <tr>
+          <td>第6週</td>
+          <td>棋局攻防・我的第一場對弈</td>
+          <td>學習基本攻防與簡易對弈，練習分析局勢、預測對手行動及思考不同解決方案。</td>
+        </tr>
+        <tr>
+          <td>第7週</td>
+          <td>棋盤布局・培養全局思考</td>
+          <td>認識角、邊、中央及基本布局觀念，練習整體規劃，培養長遠思考與決策能力。</td>
+        </tr>
+        <tr>
+          <td>第8週</td>
+          <td>棋力挑戰・智慧闖關趣</td>
+          <td>透過分組闖關、棋題挑戰及趣味競賽，複習前七週知識，建立自信與合作精神。</td>
+        </tr>
+        <tr class="citizen">
+          <td>第9週</td>
+          <td>公民素養週</td>
+          <td>由彰化社區大學安排</td>
+        </tr>
+        <tr>
+          <td>第10週</td>
+          <td>數位圍棋・開啟智慧新視界</td>
+          <td>認識線上圍棋平台、數位棋具及AI圍棋工具，學習安全使用網路資源，探索數位學習樂趣。</td>
+        </tr>
+        <tr>
+          <td>第11週</td>
+          <td>資訊偵探・真假資訊大解密</td>
+          <td>透過圍棋資訊案例，練習查證來源、辨識錯誤資訊及AI生成內容，培養資訊判讀與獨立思考能力。</td>
+        </tr>
+        <tr>
+          <td>第12週</td>
+          <td>輸棋不輸品格・情緒大師</td>
+          <td>透過勝負情境認識情緒，練習自我覺察、情緒調節、挫折容忍、同理心及尊重他人。</td>
+        </tr>
+        <tr>
+          <td>第13週</td>
+          <td>圍棋心理學・讀懂對手的心</td>
+          <td>透過棋局觀察與角色互換，練習換位思考、理解他人策略，培養溝通與社會覺察能力。</td>
+        </tr>
+        <tr>
+          <td>第14週</td>
+          <td>棋局解密・策略高手養成術</td>
+          <td>學習死活、打吃、接不歸等基本戰術，透過案例分析提升邏輯推理與問題解決能力。</td>
+        </tr>
+        <tr>
+          <td>第15週</td>
+          <td>跨世代對弈・棋友交流會</td>
+          <td>安排不同年齡及程度學員交流對弈，透過合作、分享與經驗傳承，促進跨世代理解。</td>
+        </tr>
+        <tr>
+          <td>第16週</td>
+          <td>AI圍棋實驗室・人機智慧對決</td>
+          <td>運用AI輔助棋局分析，觀察人機思考差異，學習理性運用科技及判斷數位資訊。</td>
+        </tr>
+        <tr>
+          <td>第17週</td>
+          <td>棋藝總動員・成果挑戰賽</td>
+          <td>綜合運用所學規則、策略與棋藝，進行分組競賽及友誼對弈，練習公平競爭與團隊合作。</td>
+        </tr>
+        <tr>
+          <td>第18週</td>
+          <td>棋樂無窮・學習成果展</td>
+          <td>展示棋藝學習成果，舉辦交流對弈、心得分享及成果發表，展現學習成長與社區共學精神。</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 教學設計 -->
+<section id="design" class="design">
+  <div class="section-title">
+    <small>TEACHING DESIGN</small>
+    <h2>特色教學設計</h2>
+    <p>第12週：輸棋不輸品格・情緒大師</p>
+  </div>
+
+  <div class="design-box">
+    <h3>從一盤輸棋，學會面對人生</h3>
+    <p>
+      <strong>教學目標：</strong>
+      培養學員情緒覺察、挫折容忍、同理心及尊重他人的能力。
+    </p>
+    <br>
+    <p><strong>教學流程：</strong></p>
+    <ol style="padding-left:25px">
+      <li>情境引導：分享對弈輸棋時的感受。</li>
+      <li>棋局實戰：安排學員進行友誼對弈。</li>
+      <li>情緒辨識：辨認失望、焦慮及不服輸等情緒。</li>
+      <li>小組分享：討論如何面對失敗與尊重對手。</li>
+      <li>反思練習：將棋局經驗連結日常生活。</li>
+    </ol>
+    <br>
+    <p><strong>預期成果：</strong>
+      學會接受勝負、調整情緒，將棋盤上的智慧運用於人際互動與生活。
+    </p>
+  </div>
+</section>
+
+<!-- 教學方式與發展 -->
+<section>
+  <div class="section-title">
+    <small>LEARNING METHODS</small>
+    <h2>多元教學・快樂學習</h2>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <h3>🎓 講師示範與實際操作</h3>
+      <p>由淺入深講解棋理，透過實際操作掌握圍棋技巧。</p>
+    </div>
+
+    <div class="info-card">
+      <h3>👥 團體互動及小組活動</h3>
+      <p>透過分組對弈、討論及合作，建立學習夥伴關係。</p>
+    </div>
+
+    <div class="info-card">
+      <h3>💡 案例討論與心得分享</h3>
+      <p>結合棋局案例及生活經驗，培養思考與反思能力。</p>
+    </div>
+
+    <div class="info-card">
+      <h3>📺 影片欣賞及圖像教學</h3>
+      <p>運用圖像、影片及數位工具，提升學習理解。</p>
+    </div>
+
+    <div class="info-card">
+      <h3>🏆 學員競賽及獎勵表揚</h3>
+      <p>透過友誼賽及闖關活動，增加參與感與成就感。</p>
+    </div>
+
+    <div class="info-card">
+      <h3>🌱 延續性發展計畫</h3>
+      <p>未來發展初、中、高階課程，結合數位棋藝、跨世代共學及社區交流，培育社區圍棋推廣種子。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 招生宣傳 -->
+<section id="contact" class="promo">
+  <h2>現在就加入！</h2>
+  <h3>讓人生每一步，都走得更精彩！</h3>
+
+  <p>
+    不怕不會下棋，只怕錯過這場精彩的智慧之旅！
+  </p>
+
+  <p>
+    從棋盤認識自己，從對弈認識朋友，
+    從學習開啟人生更多可能。
+  </p>
+
+  <p>
+    讓我們一起以棋會友、以棋養心、以棋增智！
+  </p>
+
+  <a href="#about" class="btn">認識課程內容</a>
+</section>
+
+<footer>
+  <p><strong>棋樂無窮・智慧人生</strong></p>
+  <p>彰化社區大學｜18週圍棋特色課程</p>
+  <p>一盤棋，連結世代；一份學習，豐富人生。</p>
+  <p>© 2026 Changhua Community University</p>
+</footer>
+
+</body>
+</html>
